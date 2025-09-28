@@ -117,14 +117,7 @@ export default function Home() {
     <>
       <Navbar />
       <HomePage />
-      <h1>Aditya Kumar</h1>
-      <h1>piyush</h1>
-
-      <h1>testing again</h1>
-      <h1>testing 2</h1>
-
-      <h1>Aditya Kumar 02</h1>
-      <h1>Aditya Branch</h1>
+     
 
       <Footer />
     </>

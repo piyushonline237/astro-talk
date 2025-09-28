@@ -15,7 +15,7 @@ export default function ContactUsHero() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
           <p className="text-lg opacity-90 max-w-2xl mx-auto">
             Have questions about our services? Need help with your account? We're here to help you on your spiritual
-            journey. 9693245941
+            journey. 9934338395
           </p>
         </motion.div>
       </div>

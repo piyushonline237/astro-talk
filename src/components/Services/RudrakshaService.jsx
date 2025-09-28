@@ -44,6 +44,9 @@ const benefits = [
 export default function RudrakshaService() {
   return (
     <main className="pt-20">
+
+
+
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-b from-orange-50 to-white py-20">
         <div className="absolute inset-0 bg-[url('/patterns/stars.svg')] opacity-5"></div>
@@ -91,7 +94,7 @@ export default function RudrakshaService() {
               <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-r from-orange-500 to-red-500 rounded-full blur-3xl opacity-20"></div>
                 <Image
-                  src="/services/rudraksha-hero.png"
+                  src="/getreading.png"
                   alt="Sacred Rudraksha beads"
                   width={600}
                   height={500}
@@ -102,6 +105,9 @@ export default function RudrakshaService() {
           </div>
         </div>
       </section>
+
+
+
 
       {/* About Rudraksha */}
       <section className="py-20 bg-white">
@@ -162,6 +168,9 @@ export default function RudrakshaService() {
         </div>
       </section>
 
+
+
+
       {/* Benefits Section */}
       <section className="py-20 bg-gray-100">
         <div className="container mx-auto px-4">
@@ -195,6 +204,10 @@ export default function RudrakshaService() {
           </div>
         </div>
       </section>
+
+
+
+
 
       {/* Types of Rudraksha */}
       <section id="types" className="py-20 bg-white">
@@ -249,6 +262,11 @@ export default function RudrakshaService() {
           </div>
         </div>
       </section>
+
+
+
+
+      
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600 text-white">

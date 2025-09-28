@@ -12,7 +12,7 @@ export default function AboutUs() {
       <AboutUsHero />
       <AboutUsStory />
       <AboutUsValues />
-      <AboutUsTeam />
+      {/* <AboutUsTeam /> */}
       <AboutUsCTA />
     </main>
   )

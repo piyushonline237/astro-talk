@@ -7,19 +7,23 @@ const contactInfo = [
   {
     icon: <Email className="h-6 w-6" />,
     title: "Email Us",
-    details: ["support@talkastro.com", "info@talkastro.com"],
+    details: ["mahtodineshwar5@gmail.com"],
     description: "Send us an email anytime",
   },
   {
     icon: <Phone className="h-6 w-6" />,
     title: "Call Us",
-    details: ["+91 98765 43210", "+91 87654 32109"],
-    description: "Mon-Fri from 9am to 6pm",
+    details: ["+91 9934338395"],
+    description: "Available during business hours",
   },
   {
     icon: <LocationOn className="h-6 w-6" />,
     title: "Visit Us",
-    details: ["123 Spiritual Street", "Mumbai, Maharashtra 400001"],
+    details: [
+      "Dr D Mahto",
+      "Co-operative colony, Dipugarha",
+      "Hazaribagh, Jharkhand - 825301",
+    ],
     description: "Come say hello at our office",
   },
   {

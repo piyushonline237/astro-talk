@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, Close, Person, Login, ExpandMore } from "@mui/icons-material"
+import { Menu, Close, ExpandMore } from "@mui/icons-material"
 import { useAuth } from "@/hooks/use-auth"
 
 export default function Navbar() {
@@ -28,13 +28,6 @@ export default function Navbar() {
 
   const toggleMenu = () => setIsOpen(!isOpen)
 
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "Astrologers", href: "/astrologers" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
-  ]
-
   const services = [
     { name: "Astrology", href: "/services/astrology" },
     { name: "Rudraksha", href: "/services/rudraksha" },
@@ -57,26 +50,25 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <div className="relative">
+            {/* <div className="relative">
               <div className="absolute inset-0 bg-orange-500 rounded-full blur-sm opacity-20"></div>
               <Image src="/logo.png" alt="TalkAstro Logo" width={40} height={40} className="relative z-10" />
-            </div>
+            </div> */}
             <span className="ml-2 text-xl font-bold bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
-              TalkAstro
-            </span>
+             Parashar Jyoti shsodh Sansthan            </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-foreground hover:text-orange-500 transition-colors font-medium"
-              >
-                {link.name}
-              </Link>
-            ))}
+          {/* Desktop Navigation - everything aligned right */}
+          <nav className="hidden md:flex items-center space-x-8 ml-auto">
+            {/* Home */}
+            <Link href="/" className="text-foreground hover:text-orange-500 transition-colors font-medium">
+              Home
+            </Link>
+
+            {/* About */}
+            <Link href="/about" className="text-foreground hover:text-orange-500 transition-colors font-medium">
+              About
+            </Link>
 
             {/* Services Dropdown */}
             <div className="relative">
@@ -113,44 +105,15 @@ export default function Navbar() {
                 )}
               </AnimatePresence>
             </div>
-          </nav>
 
-          {/* Auth Buttons - Desktop */}
-          <div className="hidden md:flex items-center space-x-4">
-            {user ? (
-              <>
-                <Link
-                  href="/dashboard"
-                  className="flex items-center text-sm font-medium text-foreground hover:text-orange-500 transition-colors"
-                >
-                  <Person className="mr-1 h-4 w-4" />
-                  Dashboard
-                </Link>
-                <button
-                  onClick={logout}
-                  className="px-4 py-2 rounded-lg bg-gray-100 text-foreground hover:bg-gray-200 transition-colors text-sm font-medium"
-                >
-                  Logout
-                </button>
-              </>
-            ) : (
-              <>
-                <Link
-                  href="/login"
-                  className="flex items-center text-sm font-medium text-foreground hover:text-orange-500 transition-colors"
-                >
-                  <Login className="mr-1 h-4 w-4" />
-                  Login
-                </Link>
-                <Link
-                  href="/signup"
-                  className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-lg hover:from-orange-600 hover:to-red-600 transition-all duration-300 transform hover:scale-105 shadow-lg text-sm font-medium"
-                >
-                  Sign Up
-                </Link>
-              </>
-            )}
-          </div>
+            {/* Contact - CTA */}
+            <Link
+              href="/contact"
+              className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-lg hover:from-orange-600 hover:to-red-600 transition-all duration-300 transform hover:scale-105 shadow-md font-medium"
+            >
+              Contact
+            </Link>
+          </nav>
 
           {/* Mobile Menu Button */}
           <button className="md:hidden flex items-center" onClick={toggleMenu} aria-label="Toggle menu">
@@ -170,19 +133,26 @@ export default function Navbar() {
             className="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200"
           >
             <div className="container mx-auto px-4 py-4">
-              <nav className="flex flex-col space-y-4">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className="text-foreground hover:text-orange-500 transition-colors py-2 font-medium"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
+              <nav className="flex flex-col space-y-4 text-right">
+                {/* Home */}
+                <Link
+                  href="/"
+                  className="text-foreground hover:text-orange-500 transition-colors py-2 font-medium"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Home
+                </Link>
 
-                {/* Mobile Services */}
+                {/* About */}
+                <Link
+                  href="/about"
+                  className="text-foreground hover:text-orange-500 transition-colors py-2 font-medium"
+                  onClick={() => setIsOpen(false)}
+                >
+                  About
+                </Link>
+
+                {/* Services */}
                 <div className="py-2">
                   <p className="font-medium text-foreground mb-2">Services</p>
                   <div className="pl-4 space-y-2">
@@ -199,47 +169,14 @@ export default function Navbar() {
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-gray-200">
-                  {user ? (
-                    <>
-                      <Link
-                        href="/dashboard"
-                        className="flex items-center text-foreground hover:text-orange-500 transition-colors py-2"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        <Person className="mr-2 h-5 w-5" />
-                        Dashboard
-                      </Link>
-                      <button
-                        onClick={() => {
-                          logout()
-                          setIsOpen(false)
-                        }}
-                        className="flex items-center text-foreground hover:text-orange-500 transition-colors py-2 w-full text-left"
-                      >
-                        Logout
-                      </button>
-                    </>
-                  ) : (
-                    <>
-                      <Link
-                        href="/login"
-                        className="flex items-center text-foreground hover:text-orange-500 transition-colors py-2"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        <Login className="mr-2 h-5 w-5" />
-                        Login
-                      </Link>
-                      <Link
-                        href="/signup"
-                        className="flex items-center text-foreground hover:text-orange-500 transition-colors py-2"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        Sign Up
-                      </Link>
-                    </>
-                  )}
-                </div>
+                {/* Contact */}
+                <Link
+                  href="/contact"
+                  className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-lg hover:from-orange-600 hover:to-red-600 transition-all duration-300 transform hover:scale-105 shadow-md font-medium text-center"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Contact
+                </Link>
               </nav>
             </div>
           </motion.div>

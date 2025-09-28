@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Facebook, Twitter, Instagram, LinkedIn, AdminPanelSettings } from "@mui/icons-material"
+import { Facebook, Twitter, Instagram, LinkedIn } from "@mui/icons-material"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -31,16 +31,11 @@ export default function Footer() {
     { name: "FAQ", href: "/faq" },
   ]
 
-  const adminLinks = [
-    { name: "Super Admin", href: "/admin", icon: <AdminPanelSettings className="h-4 w-4" /> },
-    { name: "Admin Login", href: "/admin/login" },
-  ]
-
   return (
     <footer className="bg-gray-50 pt-16 pb-8 relative">
       <div className="absolute inset-0 bg-gradient-to-br from-orange-50 to-red-50 opacity-10"></div>
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Logo and Description */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center">
@@ -56,6 +51,27 @@ export default function Footer() {
               Connect with expert astrologers for personalized guidance on life, relationships, career, and spiritual
               growth.
             </p>
+
+            {/* Contact Info */}
+            <div className="mt-6 text-gray-600 text-sm space-y-2">
+              <p>
+                <strong>Email:</strong>{" "}
+                <a href="mailto:mahtodineshwar5@gmail.com" className="hover:text-orange-500">
+                  mahtodineshwar5@gmail.com
+                </a>
+              </p>
+              <p>
+                <strong>Phone:</strong>{" "}
+                <a href="tel:9934338395" className="hover:text-orange-500">
+                  9934338395
+                </a>
+              </p>
+              <p>
+                <strong>Address:</strong> Dr D Mahto, Co-operative Colony, Dipugarha, Hazaribagh, Jharkhand – 825301
+              </p>
+            </div>
+
+            {/* Social Links */}
             <div className="flex space-x-4 mt-6">
               <a
                 href="https://facebook.com"
@@ -143,26 +159,6 @@ export default function Footer() {
               ))}
             </ul>
           </div>
-
-          {/* Admin Access */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4 bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent inline-block">
-              Admin Access
-            </h3>
-            <ul className="space-y-2">
-              {adminLinks.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="flex items-center text-gray-600 hover:text-orange-500 transition-colors group"
-                  >
-                    {link.icon && <span className="mr-2 group-hover:scale-110 transition-transform">{link.icon}</span>}
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
 
         <div className="border-t border-gray-200 mt-12 pt-8">
@@ -175,25 +171,6 @@ export default function Footer() {
               <Link href="/terms" className="text-sm text-gray-600 hover:text-orange-500 transition-colors">
                 Terms of Service
               </Link>
-            </div>
-          </div>
-
-          {/* Admin Footer Bar */}
-          <div className="mt-4 pt-4 border-t border-gray-200/50">
-            <div className="flex flex-col sm:flex-row justify-between items-center">
-              <div className="flex items-center space-x-4 text-xs text-gray-600">
-                <span>Platform Management:</span>
-                <Link
-                  href="/admin"
-                  className="flex items-center bg-gradient-to-r from-orange-500 to-red-500 text-white px-3 py-1 rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-105"
-                >
-                  <AdminPanelSettings className="h-3 w-3 mr-1" />
-                  Super Admin Dashboard
-                </Link>
-              </div>
-              <div className="mt-2 sm:mt-0 text-xs text-gray-500">
-                <span>Secure Admin Access</span>
-              </div>
             </div>
           </div>
         </div>
